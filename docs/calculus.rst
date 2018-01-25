@@ -164,7 +164,7 @@
 详细步骤
 ------------
 
-Say :math:`f(x)` is composed of two functions :math:`h(x) = x^3` and :math:`g(x) = x^2`. And that:
+假设 :math:`f(x)` 是 :math:`h(x) = x^3` 和 :math:`g(x) = x^2` 2个函数的组合。那么
 
 .. math::
 
@@ -173,7 +173,7 @@ Say :math:`f(x)` is composed of two functions :math:`h(x) = x^3` and :math:`g(x)
        &= (x^2)^3 \\
   \end{align}
 
-The derivative of :math:`f(x)` would equal:
+:math:`f(x)` 的导数等于:
 
 .. math::
 
@@ -183,27 +183,27 @@ The derivative of :math:`f(x)` would equal:
   \end{align}
 
 
-.. rubric:: Steps
+.. rubric:: 步骤
 
-1. Solve for the inner derivative of :math:`g(x) = x^2`
+1. 算出内部导数 :math:`g(x) = x^2`
 
 .. math::
 
   \frac{dg}{dx} = 2x
 
-2. Solve for the outer derivative of :math:`h(x) = x^3`, using a placeholder :math:`b` to represent the inner function :math:`x^2`
+2. 算出外部导数 :math:`h(x) = x^3`, 使用占位符 :math:`b` 表示内部函数 :math:`x^2`
 
 .. math::
 
   \frac{dh}{db} = 3b^2
 
-3. Swap out the placeholder variable for the inner function
+3. 用内部函数替换占位符
 
 .. math::
 
   3x^4
 
-4. Return the product of the two derivatives
+4. 返回2个导数乘积
 
 .. math::
 
