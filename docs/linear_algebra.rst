@@ -13,7 +13,7 @@
 向量
 =======
 
-向量是数字或术语的一维数组。在几何中，向量存储一个潜在的变化的大小和方向。向量[3, -2] 表示向右为3向下为2。多于一维的向量成为矩阵。
+向量是数字或(代数等式中的)项的一维数组。在几何中，向量存储一个潜在的变化的大小和方向。向量[3, -2] 表示向右为3向下为2。多于一维的向量成为矩阵。
 
 
 符号
@@ -160,25 +160,23 @@ Hadamard 乘积是一个元素乘积，输出一个向量.
 
 向量场
 -------------
-A vector field shows how far the point (x,y) would hypothetically move if we applied a vector function 
-to it like addition or multiplication. Given a point in space, a vector field shows the power and 
-direction of our proposed change at a variety of points in a graph [2]_.
-向量场显示
+
+向量场显示如果我们给点(x,y)应用一个向量函数如加或乘，它会移动多远。给定空间的一个点，向量场表示图中不同点移动的方向和力。[2]_.
 
 .. image:: images/vector_field.png
     :align: center
 
-This vector field is an interesting one since it moves in different directions depending the starting point. The reason is that the vector behind this field stores terms like :math:`2x` or :math:`x^2` instead of scalar values like -2 and 5. For each point on the graph, we plug the x-coordinate into :math:`2x` or :math:`x^2` and draw an arrow from the starting point to the new location. Vector fields are extremely useful for visualizing machine learning techniques like Gradient Descent.
+向量场有趣的是不同的移动方向依赖于开始的点。原因是场中的向量存储这(代数等式中的)项如 :math:`2x` 或 :math:`x^2` 而不是标量如-2和5。
+对图中任意的点，我们在x轴上加上 :math:`2x`  或 :math:`x^2` 然后从那个起始点画一个箭头到新的位置。向量场在可视化机器学习的技术如梯度下降上非常有用。
 
-
-Matrices
+矩阵
 ========
 
-A matrix is a rectangular grid of numbers or terms (like an Excel spreadsheet) with special rules for addition, subtraction, and multiplication.
+矩阵是一个包含数字或项的矩形的表格(如Excel spreadsheet) 和一些加减乘除的特殊规则。
 
-Dimensions
+维度
 ----------
-We describe the dimensions of a matrix in terms of rows by columns.
+我们把矩阵的维度描述为行和列。
 
 .. math::
 
@@ -192,7 +190,7 @@ We describe the dimensions of a matrix in terms of rows by columns.
   18 & 7a-4 & 10\\
   \end{bmatrix}
 
-The first has dimensions (3,2). The second (2,3).
+第一个维度为 (3,2). 第二个 (2,3).
 
 ::
 
@@ -207,9 +205,10 @@ The first has dimensions (3,2). The second (2,3).
   b.shape == (1,3)
 
 
-Scalar operations
+标量运算
 -----------------
-Scalar operations with matrices work the same way as they do for vectors. Simply apply the scalar to every element in the matrix — add, subtract, divide, multiply, etc.
+
+矩阵的标量运算和向量一样。简单的给每个元素应用标量进行加减乘除即可。
 
 .. math::
 
@@ -238,9 +237,10 @@ Scalar operations with matrices work the same way as they do for vectors. Simply
    [4,5]]
 
 
-Elementwise operations
+元素运算
 ----------------------
-In order to add, subtract, or divide two matrices they must have equal dimensions. We combine corresponding values in an elementwise fashion to produce a new matrix.
+
+2个矩阵进行加，减，除必须有相同的维度。我们组合逐个元素的方式产生新的矩阵。
 
 .. math::
 
@@ -277,9 +277,10 @@ In order to add, subtract, or divide two matrices they must have equal dimension
    [0, 0]]
 
 
-Hadamard product
+Hadamard 乘积
 ----------------
-Hadamard product of matrices is an elementwise operation. Values that correspond positionally are multiplied to produce a new matrix.
+Hadamard 乘积 of matrices is an elementwise operation.
+矩阵的Hadamard 乘积是一个元素运算。位置对应的元素相乘产生新的矩阵。
 
 .. math::
 
@@ -312,7 +313,7 @@ Hadamard product of matrices is an elementwise operation. Values that correspond
   [[ 6, 12],
    [10, 18]]
 
-In numpy you can take the Hadamard product of a matrix and vector as long as their dimensions meet the requirements of broadcasting.
+在numpy中，你可以把矩阵和向量进行Hadamard乘积，只要他们的维度满足broadcasting的需求。
 
 .. math::
 
@@ -332,15 +333,17 @@ In numpy you can take the Hadamard product of a matrix and vector as long as the
   \end{bmatrix}
 
 
-Matrix transpose
+矩阵的转置
 ----------------
-Neural networks frequently process weights and inputs of different sizes where the dimensions do not meet the requirements of matrix multiplication. Matrix transpose provides a way to “rotate” one of the matrices so that the operation complies with multiplication requirements and can continue. There are two steps to transpose a matrix:
 
-  1. Rotate the matrix right 90°
+神经网络经常处理不同大小的输入，它们的维度不满足矩阵相乘的需求。
+矩阵转置提供一个『旋转』矩阵的方法，从而让乘法操作可行。矩阵的转置分为2步：
 
-  2. Reverse the order of elements in each row (e.g. [a b c] becomes [c b a])
+  1. 把矩阵向右旋转 90°
 
-As an example, transpose matrix M into T:
+  2. 反转每行的元素顺序 (例如 [a b c] 变成 [c b a])
+
+例子，把矩阵 M 转置为 T:
 
 .. math::
 
@@ -366,26 +369,28 @@ As an example, transpose matrix M into T:
    [2, 4]]
 
 
-Matrix multiplication
+矩阵乘法
 ---------------------
-Matrix multiplication specifies a set of rules for multiplying matrices together to produce a new matrix.
 
-**Rules**
+矩阵乘法规定一组把2个矩阵相乘产生新的矩阵的规则。
 
-Not all matrices are eligible for multiplication. In addition, there is a requirement on the dimensions of the resulting matrix output. Source.
+**规则**
 
-  1. The number of columns of the 1st matrix must equal the number of rows of the 2nd
+不是所有的矩阵都可以相乘。而且输出的矩阵维度取决于源矩阵。
 
-  2. The product of an M x N matrix and an N x K matrix is an M x K matrix. The new matrix takes the rows of the 1st and columns of the 2nd
+  1. 第一个矩阵的列数必须和第二个矩阵的行数相等
 
-**Steps**
+  2. M x N 矩阵乘以 N x K 矩阵结果为 M x K 的矩阵, 新的矩阵行数为第一个矩阵的行数，列数为第二个矩阵的列数。
 
-Matrix multiplication relies on dot product to multiply various combinations of rows and columns. In the image below, taken from Khan Academy’s excellent linear algebra course, each entry in Matrix C is the dot product of a row in matrix A and a column in matrix B [3]_.
+**步骤**
+
+矩阵乘法依赖点积来吧不同的行和列乘起来。
+如下图，来自Khan Academy的线性代数课程，矩阵C的每个项是矩阵A的行和矩阵B的列的点积。[3]_
 
 .. image:: images/khan_academy_matrix_product.png
     :align: center
 
-The operation a1 · b1 means we take the dot product of the 1st row in matrix A (1, 7) and the 1st column in matrix B (3, 5).
+运算a1 · b1 表示我们取矩阵A 第一行(1, 7)和 矩阵B第一列的点积。
 
 .. math::
 
@@ -401,7 +406,7 @@ The operation a1 · b1 means we take the dot product of the 1st row in matrix A 
   \end{bmatrix}
   = (1 \cdot 3) + (7 \cdot 5) = 38
 
-Here’s another way to look at it:
+另外一个方式理解:
 
 .. math::
 
@@ -423,10 +428,10 @@ Here’s another way to look at it:
   \end{bmatrix}
 
 
-Test yourself
+自我测试
 -------------
 
-1. What are the dimensions of the matrix product?
+1. 相乘后的维度是多少?
 
 .. math::
 
@@ -442,7 +447,7 @@ Test yourself
   = \text{2 x 3}
 
 
-2. What are the dimensions of the matrix product?
+2. 相乘后的维度是多少?
 
 .. math::
 
@@ -460,7 +465,7 @@ Test yourself
   \end{bmatrix}
   = \text{3 x 2}
 
-3. What is the matrix product?
+3. 相乘后的矩阵?
 
 .. math::
 
@@ -480,7 +485,7 @@ Test yourself
   \end{bmatrix}
 
 
-4. What is the matrix product?}
+4. 相乘后的矩阵是?}
 
 .. math::
 
@@ -498,7 +503,7 @@ Test yourself
   5 & 10 & 15 \\
   \end{bmatrix}
 
-5. What is the matrix product?
+5. 相乘后的矩阵是?
 
 .. math::
 
@@ -521,9 +526,11 @@ Test yourself
 Numpy
 =====
 
-Dot product
+点积
 -----------
-Numpy uses the function np.dot(A,B) for both vector and matrix multiplication. It has some other interesting features and gotchas so I encourage you to read the documentation here before use.
+
+Numpy使用函数np.dot(A,B) 进行向量和矩阵的乘法。
+有一下有趣的特性和坑，建议你在使用前阅读文档。
 
 ::
 
@@ -545,11 +552,13 @@ Numpy uses the function np.dot(A,B) for both vector and matrix multiplication. I
 
 Broadcasting
 ------------
-In numpy the dimension requirements for elementwise operations are relaxed via a mechanism called broadcasting. Two matrices are compatible if the corresponding dimensions in each matrix (rows vs rows, columns vs columns) meet the following requirements:
 
-  1. The dimensions are equal, or
+在numpy中， 维度的要求在逐元素的操作会使用一个叫做broadcasting的机制自动满足。
+2个矩阵可以兼容,如果(行对行，列对列)满足下面的条件:
 
-  2. One dimension is of size 1
+  1. 维度相同, or
+
+  2. 一个维度是 1
 
 ::
 
