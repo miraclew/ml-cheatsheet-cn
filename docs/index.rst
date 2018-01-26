@@ -9,6 +9,12 @@
 
   本文档处于早期开发阶段，如果你发现错误，请在github提issue。
 
+.. toctree::
+    :caption: 基础
+    :maxdepth: 1
+
+    线性回归 <linear_regression>
+
 
 .. toctree::
     :caption: 数学
@@ -16,6 +22,7 @@
 
     微积分 <calculus>
     线性代数 <linear_algebra>
+    数学符号 <math_notation>
 
 .. https://en.wikipedia.org/wiki/Outline_of_machine_learning
 
