@@ -15,6 +15,7 @@
     :maxdepth: 1
 
     微积分 <calculus>
+    线性代数 <linear_algebra>
 
 .. https://en.wikipedia.org/wiki/Outline_of_machine_learning
 
