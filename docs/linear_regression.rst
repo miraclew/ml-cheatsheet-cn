@@ -12,35 +12,38 @@
 简介
 ============
 
-Linear Regression is a supervised machine learning algorithm where the predicted output is continuous and has a constant slope. It's used to predict values within a continuous range, (e.g. sales, price) rather than trying to classify them into categories (e.g. cat, dog). There are two main types:
+线性回归是一种监督的机器学习算法，他的预测输出是一个连续的值，而且有一个常数斜率。它用了预测一个在连续范围内的值,  (例如：销量，价格)
+而不是来把一些事物分成不同的类别(如：猫，狗)。这里有2种类型:
 
-.. rubric:: Simple regression
+.. rubric:: 简单回归
 
-Simple linear regression uses traditional slope-intercept form, where :math:`m` and :math:`b` are the variables our algorithm will try to "learn" to produce the most accurate predictions. :math:`x` represents our input data and :math:`y` represents our prediction.
+简单线性回归使用传统的斜率拦截的方式，:math:`m` 和 :math:`b` 是我们的算法需要学习的变量， :math:`x` 表示输入，:math:`y` 表示我们的预测值。
 
 .. math::
 
   y = mx + b
 
-.. rubric:: Multivariable regression
+.. rubric:: 多变量回归
 
-A more complex, multi-variable linear equation might look like this, where :math:`w` represents the coefficients, or weights, our model will try to learn.
+一个更复杂的多变量等式是这样的，:math:`w` 表示系数或权重，我们的模型试图学习它。
 
 .. math::
 
   f(x,y,z) = w_1 x + w_2 y + w_3 z
 
-The variables :math:`x, y, z` represent the attributes, or distinct pieces of information, we have about each observation. For sales predictions, these attributes might include a company's advertising spend on radio, TV, and newspapers.
+变量 :math:`x, y, z` 表示属性, 或者我们将要观察的彼此独立的信息。 对于销售预测，这些属性包括公司在广播，电视，报纸上投放的广告。
 
 .. math::
 
   Sales = w_1 Radio + w_2 TV + w_3 News
 
 
-Simple regression
+简单回归
 =================
 
-Let’s say we are given a `dataset <http://www-bcf.usc.edu/~gareth/ISL/Advertising.csv>`_ with the following columns (features): how much a company spends on Radio advertising each year and its annual Sales in terms of units sold. We are trying to develop an equation that will let us to predict units sold based on how much a company spends on radio advertising. The rows (observations) represent companies.
+比如说我们有一个 `数据集 <http://www-bcf.usc.edu/~gareth/ISL/Advertising.csv>`_ 它有如下的列(特性):
+一个公司在广播广告每年的费用和对应的销量(销售单位)。
+我们尝试用广播广告费用来预测销量。每行代表不同的公司。
 
 +--------------+---------------+-----------+
 | **Company**  | **Radio ($)** | **Sales** |
@@ -55,23 +58,25 @@ Let’s say we are given a `dataset <http://www-bcf.usc.edu/~gareth/ISL/Advertis
 +--------------+---------------+-----------+
 
 
-Making predictions
+预测
 ------------------
 
-Our prediction function outputs an estimate of sales given a company's radio advertising spend and our current values for *Weight* and *Bias*.
+我们的预测函数根据公司的广播广告费用和我们当前的 *权重* 和 *偏置* 输出销量的估计值。
 
 .. math::
 
-  Sales = Weight \cdot Radio + Bias
+  销量 = 权重 \cdot 广告费 + 偏置
 
-Weight
-  the coefficient for the Radio independent variable. In machine learning we call coefficients *weights*.
+权重
+  和Radio不相关的系数. 在机器学习中我们把这个系数称为 *权重*.
 
-Radio
-  the independent variable. In machine learning we call these variables *features*.
+广告费
+  独立变量. 在机器学习中我们把它称为 *特性*.
 
-Bias
-  the intercept where our line intercepts the y-axis. In machine learning we can call intercepts *bias*. Bias offsets all predictions that we make.
+偏置
+  the intercept where our line intercepts the y-axis. In machine learning we can call intercepts *bias*. 
+  Bias offsets all predictions that we make.
+  
 
 
 
